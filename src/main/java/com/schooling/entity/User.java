@@ -1,6 +1,7 @@
 package com.schooling.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.schooling.config.security.model.UserRole;
 import com.schooling.entity.audit.Auditable;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.schooling.entity;
+package com.schooling.config.security.model;
 
 public enum UserRole
 {

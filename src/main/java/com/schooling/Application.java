@@ -1,5 +1,6 @@
 package com.schooling;
 
+import com.schooling.config.security.model.UserRole;
 import com.schooling.entity.*;
 import com.schooling.repository.CityRespository;
 import com.schooling.repository.CountryRespository;
