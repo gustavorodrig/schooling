@@ -1,6 +1,6 @@
 package com.schooling.service;
 
-import com.schooling.model.Country;
+import com.schooling.entity.Country;
 import com.schooling.repository.CountryRespository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

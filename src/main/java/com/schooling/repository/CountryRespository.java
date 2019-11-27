@@ -1,6 +1,6 @@
 package com.schooling.repository;
 
-import com.schooling.model.Country;
+import com.schooling.entity.Country;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

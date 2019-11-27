@@ -1,6 +1,6 @@
 package com.schooling.controller;
 
-import com.schooling.model.Country;
+import com.schooling.entity.Country;
 import com.schooling.service.CountryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,11 +25,6 @@ public class CountryController
         return ResponseEntity.ok(countryService.findAll());
     }
 
-    @PostMapping
-    public ResponseEntity create(@Valid @RequestBody Country country) {
-        return ResponseEntity.ok(countryService.save(country));
-    }
-
     @GetMapping("/{code}")
     public ResponseEntity<Country> findByCode(@PathVariable String code) {
         Optional<Country> stock = countryService.findByCode(code);
@@ -40,6 +35,12 @@ public class CountryController
 
         return ResponseEntity.ok(stock.get());
     }
+
+    @PostMapping
+    public ResponseEntity create(@Valid @RequestBody Country country) {
+        return ResponseEntity.ok(countryService.save(country));
+    }
+
 
     @PutMapping("/{code}")
     public ResponseEntity<Country> update(@PathVariable String code, @Valid @RequestBody Country country) {
