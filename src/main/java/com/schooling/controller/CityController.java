@@ -5,7 +5,6 @@ import com.schooling.service.CityService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -21,8 +20,6 @@ public class CityController
 {
     private final CityService cityService;
 
-    //TODO TEST EXEMPLE -- REMOVE THIS
-    @Secured("STUDENT")
     @GetMapping
     public ResponseEntity<List<City>> findAll() {
         return ResponseEntity.ok(cityService.findAll());

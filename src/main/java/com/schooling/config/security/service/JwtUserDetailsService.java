@@ -38,9 +38,13 @@ public class JwtUserDetailsService implements UserDetailsService
 				.User(user.getEmail(), user.getPassword(), authorities);
 	}
 
-	//TODO SAVE OTHER FIELDS
 	public User save(UserDTO userDTO) {
 		User newUser = new User();
+		newUser.setName(userDTO.getName());
+		newUser.setSurname(userDTO.getSurname());
+		newUser.setGender(userDTO.getGender());
+		newUser.setBirthdate(userDTO.getBirthdate());
+		newUser.setCountry(userDTO.getCountry()); //TODO Salvar so a Sigla?
 		newUser.setEmail(userDTO.getEmail());
 		newUser.setPassword(bcryptEncoder.encode(userDTO.getPassword()));
 		newUser.setUserRole(userDTO.getUserRole());

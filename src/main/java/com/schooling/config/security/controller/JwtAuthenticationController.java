@@ -1,9 +1,9 @@
 package com.schooling.config.security.controller;
 
-import com.schooling.config.security.JwtTokenUtil;
 import com.schooling.config.security.model.JwtRequest;
 import com.schooling.config.security.model.JwtResponse;
 import com.schooling.config.security.service.JwtUserDetailsService;
+import com.schooling.config.security.util.JwtTokenGenerator;
 import com.schooling.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +23,12 @@ public class JwtAuthenticationController
 	private AuthenticationManager authenticationManager;
 
 	@Autowired
-	private JwtTokenUtil jwtTokenUtil;
+	private JwtTokenGenerator jwtTokenGenerator;
 
 	@Autowired
 	private JwtUserDetailsService userDetailsService;
 
-	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	@RequestMapping(value = "/signin", method = RequestMethod.POST)
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
 
 		authenticate(authenticationRequest.getUsername(), authenticationRequest.getPassword());
@@ -36,12 +36,12 @@ public class JwtAuthenticationController
 		final UserDetails userDetails = userDetailsService
 				.loadUserByUsername(authenticationRequest.getUsername());
 
-		final String token = jwtTokenUtil.generateToken(userDetails);
+		final String token = jwtTokenGenerator.generateToken(userDetails);
 
 		return ResponseEntity.ok(new JwtResponse(token));
 	}
 	
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ResponseEntity<?> saveUser(@RequestBody UserDTO user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}

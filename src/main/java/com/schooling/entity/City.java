@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Setter
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class,
-  property = "id")
+  property = "name")
 public class City extends Auditable
 {
     @Id

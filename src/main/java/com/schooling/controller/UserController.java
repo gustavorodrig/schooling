@@ -36,18 +36,19 @@ public class UserController
         return ResponseEntity.ok(user.get());
     }
 
+    //TODO DELETE THIS SINCE A NEW USER IS CREATED WHEN ITS REGISTERED
     @PostMapping
     public ResponseEntity create(@Valid @RequestBody User user) {
         return ResponseEntity.ok(userService.save(user));
     }
 
+    //TODO SEE HOW TO UPDATE PASSWORD, CAN'T CHANGE THE EMAIL
     @PutMapping("/{id}")
     public ResponseEntity<User> update(@PathVariable Long id, @Valid @RequestBody User user) {
         if (!userService.findById(id).isPresent()) {
             log.error("Id " + id + " is not existed");
             ResponseEntity.badRequest().build();
         }
-
         return ResponseEntity.ok(userService.save(user));
     }
 
