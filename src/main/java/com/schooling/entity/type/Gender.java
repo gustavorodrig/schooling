@@ -1,4 +1,4 @@
-package com.schooling.entity;
+package com.schooling.entity.type;
 
 public enum Gender
 {

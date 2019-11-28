@@ -2,14 +2,14 @@ package com.schooling;
 
 import com.schooling.config.security.model.UserRole;
 import com.schooling.entity.*;
-import com.schooling.repository.CityRespository;
-import com.schooling.repository.CountryRespository;
-import com.schooling.repository.UserRespository;
+import com.schooling.entity.type.*;
+import com.schooling.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 @SpringBootApplication
@@ -24,6 +24,12 @@ public class Application implements CommandLineRunner
 
     @Autowired
     private UserRespository userRespository;
+
+    @Autowired
+    private CourseRespository courseRespository;
+
+    @Autowired
+    private SchoolRespository schoolRespository;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -52,7 +58,30 @@ public class Application implements CommandLineRunner
         user.setEmail("gustavo.rodrigues@msn.com");
         user.setGender(Gender.MALE);
         user.setUserRole(UserRole.SYSTEM_ADMIN);
-
         userRespository.save(user);
+
+        School school = new School();
+        school.setName("Learn Yeahh School");
+        school.setAddress("5th Avenue - City Centre");
+        school.setCity(city);
+        school.setUser(user);
+
+        Course course = new Course();
+        course.setName("General English");
+        course.setType(CourseType.LANGUAGE);
+        course.setLanguage(Language.ENGLISH);
+        course.setPeriod(CoursePeriod.MORNING);
+        course.setDuration(CourseDuration.SIX_MONTHS);
+        course.setPrice(new BigDecimal("1000.00"));
+        course.setStartFrom(new Date());
+        course.setStatus(CourseStatus.OPEN);
+        course.setSchool(school);
+
+        school.addCourse(course);
+
+        schoolRespository.save(school);
+
+        //courseRespository.save(course);
+
     }
 }

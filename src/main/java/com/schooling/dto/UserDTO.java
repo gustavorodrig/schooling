@@ -2,7 +2,7 @@ package com.schooling.dto;
 
 import com.schooling.config.security.model.UserRole;
 import com.schooling.entity.Country;
-import com.schooling.entity.Gender;
+import com.schooling.entity.type.Gender;
 import lombok.Data;
 
 import java.util.Date;
