@@ -11,6 +11,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name = "users")
 @Getter
 @Setter
 public class User extends Auditable

@@ -26,6 +26,6 @@ public class City extends Auditable
 
     @NotNull
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "country_code")
+    @JoinColumn(name = "country_code", foreignKey = @ForeignKey(name = "FK_COUNTRY_CITY"))
     private Country country;
 }

@@ -1,22 +1,22 @@
 version: '3'
 services:
-  schooling-mysql:
-    container_name: schooling-mysql
-    image: mysql/mysql-server:5.7
+  schooleduapp-postgresql:
+    container_name: schooleduapp-postgresql
+    image: postgres:latest
     environment:
-      MYSQL_DATABASE: schooling
-      MYSQL_ROOT_PASSWORD: secret
-      MYSQL_ROOT_HOST: '%'
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=schooleduapp
     ports:
-    - "3306:3306"
+      - "5432:5432"
     restart: always
 
-  app:
-    build: .
-    volumes:
-      - .:/app
-      - ~/.m2:/root/.m2
-    working_dir: /app
-    command: mvn clean spring-boot:run
-    depends_on:
-    - schooling-mysql
+#  app:
+#    build: .
+#    volumes:
+#      - .:/app
+#      - ~/.m2:/root/.m2
+#    working_dir: /app
+#    command: mvn clean spring-boot:run
+#    depends_on:
+#    - schooleduapp-postgresql
