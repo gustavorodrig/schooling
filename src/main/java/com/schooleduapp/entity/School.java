@@ -1,5 +1,7 @@
 package com.schooleduapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.schooleduapp.entity.audit.Auditable;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +13,9 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class,
+  property = "name")
 public class School extends Auditable
 {
     @Id

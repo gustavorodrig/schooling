@@ -1,5 +1,7 @@
 package com.schooleduapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import com.schooleduapp.entity.audit.Auditable;
 import com.schooleduapp.entity.type.*;
 import com.sun.istack.NotNull;
@@ -13,6 +15,9 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
+@JsonIdentityInfo(
+  generator = ObjectIdGenerators.PropertyGenerator.class,
+  property = "name")
 public class Course extends Auditable
 {
     @Id
