@@ -11,12 +11,14 @@ services:
       - "5432:5432"
     restart: always
 
-#  app:
-#    build: .
-#    volumes:
-#      - .:/app
-#      - ~/.m2:/root/.m2
-#    working_dir: /app
-#    command: mvn clean spring-boot:run
-#    depends_on:
-#    - schooleduapp-postgresql
+  app:
+    build: .
+    volumes:
+      - .:/app
+      - ~/.m2:/root/.m2
+    working_dir: /app
+    command: mvn clean spring-boot:run -Dspring-boot.run.profiles=docker
+    depends_on:
+      - schooleduapp-postgresql
+    ports:
+      - 8087:8080
