@@ -49,6 +49,11 @@ public class Application implements CommandLineRunner
         city.setCountry(country);
         cityRespository.save(city);
 
+        City city2 = new City();
+        city2.setName("Rio de Janeiro");
+        city2.setCountry(country);
+        cityRespository.save(city2);
+
         User user = new User();
         user.setName("Gustavo");
         user.setSurname("Rodrigues");
@@ -77,7 +82,18 @@ public class Application implements CommandLineRunner
         course.setStatus(CourseStatus.OPEN);
         course.setSchool(school);
 
-        school.addCourse(course);
+        Course courseSpanish = new Course();
+        courseSpanish.setName("General Spanish");
+        courseSpanish.setType(CourseType.LANGUAGE);
+        courseSpanish.setLanguage(Language.SPANISH);
+        courseSpanish.setPeriod(CoursePeriod.NIGHT);
+        courseSpanish.setDuration(CourseDuration.ONE_MONTH);
+        courseSpanish.setPrice(new BigDecimal("1000.00"));
+        courseSpanish.setStartFrom(new Date());
+        courseSpanish.setStatus(CourseStatus.CLOSED);
+        courseSpanish.setSchool(school);
+
+        school.addCourse(courseSpanish);
 
         schoolRespository.save(school);
 

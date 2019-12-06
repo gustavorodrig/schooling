@@ -22,3 +22,4 @@ services:
       - schooleduapp-postgresql
     ports:
       - 8087:8080
+      - 5055:5005

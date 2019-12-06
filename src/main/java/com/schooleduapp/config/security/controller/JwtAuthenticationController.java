@@ -4,7 +4,7 @@ import com.schooleduapp.config.security.model.JwtRequest;
 import com.schooleduapp.config.security.model.JwtResponse;
 import com.schooleduapp.config.security.service.JwtUserDetailsService;
 import com.schooleduapp.config.security.util.JwtTokenGenerator;
-import com.schooleduapp.dto.UserDTO;
+import com.schooleduapp.dto.model.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;

@@ -1,4 +1,4 @@
-package com.schooleduapp.controller;
+package com.schooleduapp.controller.v1;
 
 import com.schooleduapp.entity.School;
 import com.schooleduapp.service.SchoolService;

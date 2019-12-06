@@ -1,4 +1,4 @@
-package com.schooleduapp.controller;
+package com.schooleduapp.controller.v1;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

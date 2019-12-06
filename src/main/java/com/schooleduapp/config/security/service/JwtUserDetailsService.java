@@ -1,6 +1,6 @@
 package com.schooleduapp.config.security.service;
 
-import com.schooleduapp.dto.UserDTO;
+import com.schooleduapp.dto.model.UserDTO;
 import com.schooleduapp.entity.User;
 import com.schooleduapp.repository.UserRespository;
 import org.springframework.beans.factory.annotation.Autowired;
